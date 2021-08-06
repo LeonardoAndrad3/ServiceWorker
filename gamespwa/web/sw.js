@@ -16,6 +16,6 @@ self.addEventListener('fetch', fethEvent => {
     const rep =  new URL(fethEvent.request.url)
     if(rep.pathname == "/icons/images1.jpeg"){
         fethEvent.respondWith(caches.match('./icons/images2.jpeg'))
-        console.log("Image2")
+        console.log(" Teste if image2")
     }
 });
