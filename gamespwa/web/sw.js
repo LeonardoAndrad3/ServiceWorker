@@ -2,6 +2,7 @@ self.addEventListener('install', e => {
     e.waitUntil(
         caches.open('static-v1')
             .then(cache => cache.add('./icons/images2.jpeg'))
+            
     );
 });
 
@@ -13,5 +14,6 @@ self.addEventListener('fetch', fethEvent => {
     const rep =  new URL(fethEvent.request.url)
     if(rep.pathname == "./icons/images1.jpeg"){
         fetchEvent.respondWith(caches.match('./icons/images2.jpeg'))
+        console.log("Image2")
     }
 });
