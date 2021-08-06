@@ -6,13 +6,15 @@ self.addEventListener('install', e => {
     );
 });
 
-self.addEventListener('activate', e => {});
+self.addEventListener('activate', e => {
+    console.log("Event ...")
+});
 
 self.addEventListener('fetch', fethEvent => {
     console.log('Fazendo fetch...')
     console.log(fethEvent.request.url)
     const rep =  new URL(fethEvent.request.url)
-    if(rep.pathname == "./icons/images1.jpeg"){
+    if(rep.pathname == "images1.jpeg"){
         fetchEvent.respondWith(caches.match('./icons/images2.jpeg'))
         console.log("Image2")
     }
